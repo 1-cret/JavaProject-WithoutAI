@@ -35,7 +35,7 @@ public class StudentView extends javax.swing.JFrame {
  }
 //    private void loadEnrolledCourses() {
 //        DefaultTableModel model = (DefaultTableModel) tblCourses.getModel();
-//        model.setRowCount(0); // Clear table
+//        model.setRowCount(0); 
 //
 //        ArrayList<Student> students = FileDataStore.loadStudents();
 //        ArrayList<Module> modules = FileDataStore.loadModules();
