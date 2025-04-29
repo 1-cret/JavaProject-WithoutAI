@@ -7,7 +7,6 @@ import javax.swing.table.DefaultTableModel;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author omarhashad
@@ -15,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 public class StudentView extends javax.swing.JFrame {
 
     private Student currentStudent;
+
     /**
      * Creates new form StudentView
      */
@@ -23,15 +23,16 @@ public class StudentView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
-     private void displayStudentInfo(){
-     if(currentStudent!=null){
-         StudentIDField.setText(String.valueOf(currentStudent.getStudentID()));
-         NameField.setText(currentStudent.getName());
-         EmailField.setText(currentStudent.getEmail());
-         YearField.setText(String.valueOf(currentStudent.getYear()));
-         AnnualFeeField.setText(String.format("$%.2f",currentStudent.getAnnualFee()));
-     }
- }
+
+    private void displayStudentInfo() {
+        if (currentStudent != null) {
+            StudentIDField.setText(String.valueOf(currentStudent.getStudentID()));
+            NameField.setText(currentStudent.getName());
+            EmailField.setText(currentStudent.getEmail());
+            YearField.setText(String.valueOf(currentStudent.getYear()));
+            AnnualFeeField.setText(String.format("$%.2f", currentStudent.getAnnualFee()));
+        }
+    }
 //    private void loadEnrolledCourses() {
 //        DefaultTableModel model = (DefaultTableModel) tblCourses.getModel();
 //        model.setRowCount(0); // Clear table
@@ -51,15 +52,12 @@ public class StudentView extends javax.swing.JFrame {
 //        }
 //    }
 
-    
- public StudentView(Student student){
-     
-     this.currentStudent=student;
-     displayStudentInfo();
- }
- 
+    public StudentView(Student student) {
 
- 
+        this.currentStudent = student;
+        displayStudentInfo();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
