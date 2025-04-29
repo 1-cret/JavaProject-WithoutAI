@@ -1,8 +1,5 @@
-
 import java.util.*;
-
 public class Payment {
-
     private static int paymentCounter = 0;
     private int paymentID;
     private float amount;
@@ -19,7 +16,7 @@ public class Payment {
         this.student = student;
         this.description = description;
         this.date = date;
-        this.paymentID = paymentCounter++;
+        this.paymentID = paymentCounter++; 
     }
 
     public int getPaymentID() {
@@ -63,16 +60,16 @@ public class Payment {
         // Persist the data to file
         FileDataStore.savePayments(payment);
     }
-
+    
     public void removePayment(ArrayList<Payment> payment) {
         payment.remove(this);
         // Persist the data to file
         FileDataStore.savePayments(payment);
     }
-
+    
     public void updatePayment(ArrayList<Payment> payment) {
-        for (int i = 0; i < payment.size(); i++) {
-            if (payment.get(i).getPaymentID() == this.paymentID) {
+        for(int i = 0; i < payment.size(); i++) {
+            if(payment.get(i).getPaymentID() == this.paymentID) {
                 payment.set(i, this);
                 break;
             }

@@ -50,13 +50,7 @@ public class Teacher extends Staff {
         FileDataStore.saveTeachers(teachers);
     }
 
-    public static Teacher login(String email, String password) {
-        ArrayList<Teacher> teachers = FileDataStore.loadTeachers();
-        for (Teacher teacher : teachers) {
-            if (teacher.getEmail().equals(email) && teacher.getPassword().equals(password)) {
-                return teacher;
-            }
-        }
-        return null;
+    public boolean login() {
+        return true; // Placeholder for login logic
     }
 }

@@ -106,13 +106,7 @@ public class Student {
         FileDataStore.saveStudents(students);
     }
 
-    public static Student login(String email, String password) {
-        ArrayList<Student> students = FileDataStore.loadStudents();
-        for (Student student : students) {
-            if (student.getEmail().equals(email) && student.getPassword().equals(password)) {
-                return student;
-            }
-        }
-        return null;
+    public boolean login(){
+      return true;
     }
 }

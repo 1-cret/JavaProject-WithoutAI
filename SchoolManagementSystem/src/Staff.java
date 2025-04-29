@@ -1,6 +1,5 @@
 
 public class Staff {
-
     private static int staffCounter = 0;
     private int staffId;
     private String name;
@@ -12,6 +11,7 @@ public class Staff {
     public Staff(int staffId) {
         this.staffId = staffId;
     }
+
 
     public Staff(String name, String email, String role, StaffStatus status, String password) {
         this.name = name;
@@ -29,11 +29,9 @@ public class Staff {
     public String getName() {
         return name;
     }
-
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }

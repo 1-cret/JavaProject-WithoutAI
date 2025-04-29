@@ -1,8 +1,6 @@
-
 import java.util.Date;
 
 public class Assessment {
-
     private static int assessmentCounter = 0;
     private int assessmentID;
     private Date date;
@@ -10,10 +8,12 @@ public class Assessment {
     private String title;
     private Module module;
 
+    
     public Assessment(int assessmentID) {
         this.assessmentID = assessmentID;
     }
 
+    
     public Assessment(int assessmentID, Date date, String duration, Module module, String title) {
         this.assessmentID = assessmentID;
         this.date = date;
@@ -27,6 +27,7 @@ public class Assessment {
         return assessmentID;
     }
 
+    
     public void setDate(Date date) {
         this.date = date;
     }
@@ -35,6 +36,7 @@ public class Assessment {
         return date;
     }
 
+    
     public void setDuration(String duration) {
         this.duration = duration;
     }
@@ -43,6 +45,7 @@ public class Assessment {
         return duration;
     }
 
+    
     public void setModule(Module module) {
         this.module = module;
     }
@@ -51,6 +54,7 @@ public class Assessment {
         return module;
     }
 
+    
     public void setTitle(String title) {
         this.title = title;
     }
