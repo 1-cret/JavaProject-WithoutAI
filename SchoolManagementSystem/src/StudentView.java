@@ -33,24 +33,24 @@ public class StudentView extends javax.swing.JFrame {
          AnnualFeeField.setText(String.format("$%.2f",currentStudent.getAnnualFee()));
      }
  }
-//    private void loadEnrolledCourses() {
-//        DefaultTableModel model = (DefaultTableModel) tblCourses.getModel();
-//        model.setRowCount(0); 
-//
-//        ArrayList<Student> students = FileDataStore.loadStudents();
-//        ArrayList<Module> modules = FileDataStore.loadModules();
-//        ArrayList<Enrollment> enrollments = FileDataStore.loadEnrollments(students, modules);
-//        for (Enrollment enrollment : enrollments) {
-//            if (enrollment.getStudent().getStudentID() == currentStudent.getStudentID()) {
-//                Module module = enrollment.getModule();
-//                model.addRow(new Object[] {
-//                        module.getModuleID(),
-//                        module.getModuleName(),
-//
-//                });
-//            }
-//        }
-//    }
+    private void loadEnrolledCourses() {
+        DefaultTableModel model = (DefaultTableModel) tblCourses.getModel();
+        model.setRowCount(0); 
+
+        ArrayList<Student> students = FileDataStore.loadStudents();
+        ArrayList<Module> modules = FileDataStore.loadModules();
+        ArrayList<Enrollment> enrollments = FileDataStore.loadEnrollments(students, modules);
+        for (Enrollment enrollment : enrollments) {
+            if (enrollment.getStudent().getStudentID() == currentStudent.getStudentID()) {
+                Module module = enrollment.getModule();
+                model.addRow(new Object[] {
+                        module.getModuleID(),
+                        module.getModuleName(),
+
+                });
+            }
+        }
+    }
 
     
 
@@ -92,7 +92,7 @@ public class StudentView extends javax.swing.JFrame {
         logoutBtn = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblCourses = new javax.swing.JTable();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -257,9 +257,9 @@ public class StudentView extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Your Courses", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 18))); // NOI18N
         jPanel5.setForeground(new java.awt.Color(51, 153, 255));
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setForeground(new java.awt.Color(51, 153, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblCourses.setAutoCreateRowSorter(true);
+        tblCourses.setForeground(new java.awt.Color(51, 153, 255));
+        tblCourses.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -278,12 +278,12 @@ public class StudentView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
+        tblCourses.setGridColor(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(tblCourses);
+        if (tblCourses.getColumnModel().getColumnCount() > 0) {
+            tblCourses.getColumnModel().getColumn(0).setResizable(false);
+            tblCourses.getColumnModel().getColumn(1).setResizable(false);
+            tblCourses.getColumnModel().getColumn(2).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -433,8 +433,8 @@ public class StudentView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JButton logoutBtn;
+    private javax.swing.JTable tblCourses;
     // End of variables declaration//GEN-END:variables
 }
