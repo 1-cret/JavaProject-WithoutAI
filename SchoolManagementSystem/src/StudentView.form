@@ -105,7 +105,6 @@
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder title="Student Information">
                   <Font PropertyName="font" name="Helvetica Neue" size="18" style="1"/>
-                  <Color PropertyName="color" blue="ff" green="99" red="33" type="rgb"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -337,9 +336,6 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="99" red="33" type="rgb"/>
-                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/icons/logout.png"/>
                 </Property>
@@ -360,7 +356,6 @@
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder title="Your Courses">
                   <Font PropertyName="font" name="Helvetica Neue" size="18" style="1"/>
-                  <Color PropertyName="color" blue="ff" green="99" red="33" type="rgb"/>
                 </TitledBorder>
               </Border>
             </Property>
