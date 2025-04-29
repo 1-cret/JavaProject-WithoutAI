@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -13,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class StudentView extends javax.swing.JFrame {
 
-    private Student currentStudent;
+    private Student currentStudent ;  
 
     /**
      * Creates new form StudentView
@@ -23,16 +24,15 @@ public class StudentView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
-
-    private void displayStudentInfo() {
-        if (currentStudent != null) {
-            StudentIDField.setText(String.valueOf(currentStudent.getStudentID()));
-            NameField.setText(currentStudent.getName());
-            EmailField.setText(currentStudent.getEmail());
-            YearField.setText(String.valueOf(currentStudent.getYear()));
-            AnnualFeeField.setText(String.format("$%.2f", currentStudent.getAnnualFee()));
-        }
-    }
+     private void displayStudentInfo(){
+     if(currentStudent!=null){
+         StudentIDField.setText(String.valueOf(currentStudent.getStudentID()));
+         NameField.setText(currentStudent.getName());
+         EmailField.setText(currentStudent.getEmail());
+         YearField.setText(String.valueOf(currentStudent.getYear()));
+         AnnualFeeField.setText(String.format("$%.2f",currentStudent.getAnnualFee()));
+     }
+ }
 //    private void loadEnrolledCourses() {
 //        DefaultTableModel model = (DefaultTableModel) tblCourses.getModel();
 //        model.setRowCount(0); // Clear table
@@ -51,6 +51,10 @@ public class StudentView extends javax.swing.JFrame {
 //            }
 //        }
 //    }
+
+    
+
+
 
     public StudentView(Student student) {
 
@@ -82,10 +86,10 @@ public class StudentView extends javax.swing.JFrame {
         YearField = new javax.swing.JTextField();
         AnnualFeeField = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        editInfoBtn = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        logoutBtn = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -101,18 +105,28 @@ public class StudentView extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Student Information", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Helvetica Neue", 1, 18))); // NOI18N
         jPanel2.setForeground(new java.awt.Color(51, 153, 255));
+        jPanel2.setFocusable(false);
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel1.setText("Student ID:");
 
+        StudentIDField.setEditable(false);
+        StudentIDField.setAutoscrolls(false);
         StudentIDField.setBorder(null);
+        StudentIDField.setFocusable(false);
 
         jLabel3.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel3.setText("Name:");
 
+        NameField.setEditable(false);
+        NameField.setAutoscrolls(false);
         NameField.setBorder(null);
+        NameField.setFocusable(false);
 
+        EmailField.setEditable(false);
+        EmailField.setAutoscrolls(false);
         EmailField.setBorder(null);
+        EmailField.setFocusable(false);
 
         jLabel4.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel4.setText("Email:");
@@ -120,20 +134,26 @@ public class StudentView extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel5.setText("Year:");
 
+        YearField.setEditable(false);
+        YearField.setAutoscrolls(false);
         YearField.setBorder(null);
+        YearField.setFocusable(false);
 
+        AnnualFeeField.setEditable(false);
+        AnnualFeeField.setAutoscrolls(false);
         AnnualFeeField.setBorder(null);
+        AnnualFeeField.setFocusable(false);
 
         jLabel6.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         jLabel6.setText("Annual Fee:");
 
-        jButton2.setBackground(new java.awt.Color(51, 153, 255));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/edit.png"))); // NOI18N
-        jButton2.setText("Edit Profile");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        editInfoBtn.setBackground(new java.awt.Color(51, 153, 255));
+        editInfoBtn.setForeground(new java.awt.Color(255, 255, 255));
+        editInfoBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/edit.png"))); // NOI18N
+        editInfoBtn.setText("Edit Information");
+        editInfoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                editInfoBtnActionPerformed(evt);
             }
         });
 
@@ -164,8 +184,8 @@ public class StudentView extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AnnualFeeField, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(AnnualFeeField, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editInfoBtn))))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -192,7 +212,7 @@ public class StudentView extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AnnualFeeField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(editInfoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -204,11 +224,11 @@ public class StudentView extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Student Dashboard");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logout.png"))); // NOI18N
-        jButton1.setText("Logout");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logout.png"))); // NOI18N
+        logoutBtn.setText("Logout");
+        logoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                logoutBtnActionPerformed(evt);
             }
         });
 
@@ -220,7 +240,7 @@ public class StudentView extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
         );
         jPanel3Layout.setVerticalGroup(
@@ -228,7 +248,7 @@ public class StudentView extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(42, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(42, 42, 42))
         );
@@ -326,24 +346,43 @@ public class StudentView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void logoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutBtnActionPerformed
+        Login loginForm = new Login();
+        loginForm.setVisible(true);
+        this.dispose();  
+    }//GEN-LAST:event_logoutBtnActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void editInfoBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editInfoBtnActionPerformed
+    if (currentStudent == null) {
+        JOptionPane.showMessageDialog(this, "No student loaded.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
 
+    String newName = JOptionPane.showInputDialog(this, "Enter new name:", currentStudent.getName());
+    String newEmail = JOptionPane.showInputDialog(this, "Enter new email:", currentStudent.getEmail());
+
+    if (newName != null && !newName.trim().isEmpty()) {
+        currentStudent.setName(newName);
+    }
+
+    if (newEmail != null && !newEmail.trim().isEmpty()) {
+        currentStudent.setEmail(newEmail);
+    }
+
+    ArrayList<Student> students = FileDataStore.loadStudents();
+    currentStudent.manageAccount(students);
+
+    displayStudentInfo();
+    JOptionPane.showMessageDialog(this, "Profile updated successfully!");
+
+    }//GEN-LAST:event_editInfoBtnActionPerformed
+
+   
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
+       try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
@@ -351,20 +390,25 @@ public class StudentView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StudentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentView.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StudentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentView.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StudentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentView.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StudentView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StudentView.class.getName()).log(java.util.logging.Level.SEVERE, null,
+                    ex);
         }
-        //</editor-fold>
+        // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StudentView().setVisible(true);
+                Student s = new Student( "Omar", "omar@example.com",250000.0f,2027,"1234");
+                new StudentView(s).setVisible(true);
             }
         });
     }
@@ -375,8 +419,7 @@ public class StudentView extends javax.swing.JFrame {
     private javax.swing.JTextField NameField;
     private javax.swing.JTextField StudentIDField;
     private javax.swing.JTextField YearField;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton editInfoBtn;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -392,5 +435,6 @@ public class StudentView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JButton logoutBtn;
     // End of variables declaration//GEN-END:variables
 }
