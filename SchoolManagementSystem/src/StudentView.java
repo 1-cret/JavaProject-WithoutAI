@@ -14,13 +14,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class StudentView extends javax.swing.JFrame {
 
-<<<<<<< HEAD
-    private Student currentStudent ;    /**
-=======
-    private Student currentStudent;
+    private Student currentStudent ;  
 
     /**
->>>>>>> 7f09df87022daf2be792670de979818454e9470b
      * Creates new form StudentView
      */
     public StudentView() {
@@ -28,7 +24,6 @@ public class StudentView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
-<<<<<<< HEAD
      private void displayStudentInfo(){
      if(currentStudent!=null){
          StudentIDField.setText(String.valueOf(currentStudent.getStudentID()));
@@ -38,43 +33,6 @@ public class StudentView extends javax.swing.JFrame {
          AnnualFeeField.setText(String.format("$%.2f",currentStudent.getAnnualFee()));
      }
  }
-    private void loadEnrolledCourses() {
-        DefaultTableModel model = (DefaultTableModel) tblCourses.getModel();
-        model.setRowCount(0); // Clear table
-
-        ArrayList<Student> students = FileDataStore.loadStudents();
-        ArrayList<Module> modules = FileDataStore.loadModules();
-        ArrayList<Enrollment> enrollments = FileDataStore.loadEnrollments(students, modules);
-        for (Enrollment enrollment : enrollments) {
-            if (enrollment.getStudent().getStudentID() == currentStudent.getStudentID()) {
-                Module module = enrollment.getModule();
-                model.addRow(new Object[] {
-                        module.getModuleID(),
-                        module.getModuleName(),
-
-                });
-            }
-        }
-    }
-
-    
- public StudentView(Student student){
-     this.currentStudent = student;
-     displayStudentInfo();
- 
- }
- 
-=======
-
-    private void displayStudentInfo() {
-        if (currentStudent != null) {
-            StudentIDField.setText(String.valueOf(currentStudent.getStudentID()));
-            NameField.setText(currentStudent.getName());
-            EmailField.setText(currentStudent.getEmail());
-            YearField.setText(String.valueOf(currentStudent.getYear()));
-            AnnualFeeField.setText(String.format("$%.2f", currentStudent.getAnnualFee()));
-        }
-    }
 //    private void loadEnrolledCourses() {
 //        DefaultTableModel model = (DefaultTableModel) tblCourses.getModel();
 //        model.setRowCount(0); // Clear table
@@ -94,12 +52,15 @@ public class StudentView extends javax.swing.JFrame {
 //        }
 //    }
 
+    
+
+
+
     public StudentView(Student student) {
 
         this.currentStudent = student;
         displayStudentInfo();
     }
->>>>>>> 7f09df87022daf2be792670de979818454e9470b
 
     /**
      * This method is called from within the constructor to initialize the form.
