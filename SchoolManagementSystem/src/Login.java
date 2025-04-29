@@ -170,7 +170,7 @@ public class Login extends javax.swing.JFrame {
         switch (selectedAction) {
             case "Admin":
                 this.dispose();
-                new AdminView().setVisible(true);
+                new AdminDashboard().setVisible(true);
                 break;
                 
             case "Student":
