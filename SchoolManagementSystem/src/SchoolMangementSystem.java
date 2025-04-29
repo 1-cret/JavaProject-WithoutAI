@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.lang.reflect.Array;
-
+//teezak 7amra
 public class SchoolMangementSystem {
 
     public void addStudent(ArrayList<Student> students) {
